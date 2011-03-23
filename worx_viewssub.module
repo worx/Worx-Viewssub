@@ -1,0 +1,17 @@
+<?php
+
+/*
+ * Implementation of hook_views_query_substitutions().
+ */
+function worx_viewssub_views_query_substitutions($view) {
+  $vocabs = taxonomy_get_vocabularies();
+  $subs = array();
+  foreach ($vocabs as $vid => $vocab) {
+    $subs['***VOCAB_' . strtoupper(str_replace(array('-', ' '), '_', $vocab->name)) . '***'] = $vid;
+  }
+  $roles = user_roles();
+  foreach ($roles as $rid => $role) {
+    $subs['***ROLE_' . strtoupper(str_replace(array('-',' '), '_', $role)) . '***'] = $rid;
+  }
+  return $subs;
+}

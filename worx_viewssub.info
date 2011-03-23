@@ -1,0 +1,6 @@
+name = Worx Views Query Substitution Addon
+description = Added two query substitutions to the Views Query Substitution module.
+core = 6.x
+package = Worx Components
+version = 6.x-1.0-alpha1
+dependencies[] = viewssub
